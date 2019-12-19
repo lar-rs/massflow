@@ -58,16 +58,13 @@ impl fmt::Display for Airflow {
         write!(f,"aiflow :{} {} ",self.value,if self.value<0.0 {"BROKEN"} else {"OK"})
     }
 }
+
 pub fn input(path:&Path) -> io::Result<Airflow> {
     let value = fs::read_to_string(path.join(INPUT)).unwrap_or(String::from("-1.0")).parse::<f32>().expect("airflow input value convert error");
    Ok(Airflow{value})
 }
+
 pub fn output(path:&Path) -> io::Result<Airflow> {
     let value = fs::read_to_string(path.join(OUTPUT)).unwrap_or(String::from("-1.0")).parse::<f32>().expect("airflow output value convert error");
    Ok(Airflow{value})
 }
-
-
-// pub type Input  = Airflow;
-// pub type Output = Airflow;
-

@@ -74,6 +74,9 @@ pub struct Args {
     ///🔧 working directory 
     #[structopt(long = "workdir",  default_value = ".")]
     workdir: PathBuf,
+    ///🔧 output JSON instead of human readable messages
+    #[structopt(long = "json")]
+    json: bool,
     ///🔌 hardware interface
     #[structopt(long = "interface",  default_value = "/dev/i2c-1")]
     interface: String,
@@ -98,6 +101,11 @@ impl Args {
     #[inline]
     pub fn cmd(&self) -> &Cmd {
         &self.cmd
+    }
+    /// json output
+    #[inline]
+    pub fn json_output(&self) -> bool {
+        self.json
     }
 
 }

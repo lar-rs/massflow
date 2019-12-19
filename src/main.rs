@@ -65,8 +65,16 @@ pub fn watch_flow(workdir:&Path,watch:&cli::Watch) -> io::Result<()>{
     loop {
         select! {
             recv(ticks) -> _ => {
-                println!("working!");
-                writeln!(handle, "foo: {}", 42)?; // add `?` if you care about errors here
+                let values = [
+                    block!(adc.read(&mut channel::SingleA0)).unwrap(),
+                    block!(adc.read(&mut channel::SingleA1)).unwrap(),
+                    block!(adc.read(&mut channel::SingleA2)).unwrap(),
+                    block!(adc.read(&mut channel::SingleA3)).unwrap(),
+                ];
+                for (channel, value) in values.iter().enumerate() {
+                    println!("Channel {}: {}", channel, value);
+                }
+                // writeln!(handle, "foo: {}", 42)?; // add `?` if you care about errors here
             }
             recv(ctrl_c_events) -> _ => {
                 println!();

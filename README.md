@@ -1,4 +1,4 @@
-#  :electric_plug: `pwa-massflow`
+#  :electric_plug: `massflow`
 
  **📦  LAR Massflow monitoring sensors***
 
@@ -24,12 +24,23 @@ This is a collection of types
 
 ## Status
 
-- [ ] ⚙️  `Airflow`
-- [ ] 📟 `Humidity`
-- [ ] 🔬 `Pressure`
+- [X] ⚙️  `Airflow`
+- [X] 📟 `Humidity`
+- [X] 🔬 `Pressure`
 
 ## 🎙️ Commands
+Massflow watch 
 
+* `massflow`
+   - `workdir`
+        work directory (configurations parameter and measurement value)
+   - ⚙️ `watch`
+        ⚙️ run driver in a work dir
+        All of the arguments and flags to this command are optional:
+   - 🔧 `set`
+    🔩 Configure and start virtual can interface
+        - `delay`: measurement delay uv
+        - ``: measurement delay uv
 
 ## TODO
 - [ ] ...

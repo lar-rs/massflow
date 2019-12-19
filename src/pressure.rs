@@ -9,6 +9,7 @@ use std::fs;
 use std::io;
 
 pub const PRESSURE:  &'static str      = "pressure";
+const LIMIT:  &'static str      = "pressure_limit";
 /// Presure value model
 ///
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]

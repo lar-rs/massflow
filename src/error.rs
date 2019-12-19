@@ -38,18 +38,6 @@ impl From<io::Error> for Error {
     }
 }
 
-// 
-// impl From<std::convert::From<std::string::String> for CanError {
-    // fn from(kind:)
-// }
-
-//
-// impl std::convert::From<Error> for CanError {
-    // fn from(e: Error) -> Self {
-        // CanError::DataConvert{msg : format!("{}",e)}
-    // }
-// }
-
 impl std::convert::From<std::num::ParseIntError> for CanError {
     fn from(e: std::num::ParseIntError) -> Self {
         CanError::DataConvert{msg : format!("{}",e)}

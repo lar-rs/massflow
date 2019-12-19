@@ -21,6 +21,7 @@ use std::convert::TryFrom;
 /// interface transfer
 
 pub const VALUE:  &'static str     = "humidity";
+pub const LIMIT:  &'static str     = "humidity_limit";
 
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
